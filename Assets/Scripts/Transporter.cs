@@ -41,7 +41,6 @@ public class Transporter : MonoBehaviour {
 			if (isLevelGate) {
 				isLevelGate = false; // Don't reuse this gate to load level.
 				GetComponentInParent<LevelManager>().LoadNextLevel();
-				//	otherGate.triggerCollider.isTrigger = false; // ensure the player cant return to previous level
 			}
 			other.SendMessage("Teleport", otherGate.spawnPoint);	
 		}

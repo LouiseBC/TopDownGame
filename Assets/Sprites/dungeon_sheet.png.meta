@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d12ea110396c849d7bd22dec859c5f26
-timeCreated: 1490191249
+timeCreated: 1490210282
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -59,6 +59,12 @@ TextureImporter:
     21300104: SlidingWall4
     21300106: SlidingWall5
     21300108: FloorTile
+    21300110: RightBackPillar
+    21300112: LeftBackWallPiece
+    21300114: dungeon_sheet_0
+    21300116: RightBackWallPiece
+    21300118: LeftWall
+    21300120: RightWall
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -740,9 +746,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 84
-        y: 130
+        y: 129
         width: 16
-        height: 22
+        height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -755,7 +761,7 @@ TextureImporter:
         x: 100
         y: 130
         width: 16
-        height: 19
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -833,6 +839,58 @@ TextureImporter:
         x: 96
         y: 112
         width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RightBackPillar
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 129
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: dungeon_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 101
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LeftWall
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 112
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RightWall
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 112
+        width: 5
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
