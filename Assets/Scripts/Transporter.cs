@@ -27,7 +27,7 @@ public class Transporter : MonoBehaviour {
 	void Awake()
 	{
 		spawnPoint = this.transform.position;
-		spawnPoint.y += 0.04f; // Start off player slightly (0.25 unit) behind gate
+		//spawnPoint.y += 0.04f; // Start off player slightly (0.25 unit) behind gate
 		anim = GetComponentInChildren<Animator>();
 		if (triggerCollider == null) {
 			triggerCollider = GetComponent<BoxCollider2D>();
@@ -43,20 +43,7 @@ public class Transporter : MonoBehaviour {
 				GetComponentInParent<LevelManager>().LoadNextLevel();
 				//	otherGate.triggerCollider.isTrigger = false; // ensure the player cant return to previous level
 			}
-			print(otherGate.transform.position.x + " " + otherGate.transform.position.y);
-			//StartCoroutine(other.Teleport(otherGate.spawnPoint));
-			other.SendMessage("Teleport", otherGate.spawnPoint);
-			//StartCoroutine(otherGate.TempDisableTrigger());		
+			other.SendMessage("Teleport", otherGate.spawnPoint);	
 		}
-	}
-
-	IEnumerator TempDisableTrigger()
-	{
-		// change trigger to collider so can't immediately return
-		triggerCollider.isTrigger = false;
-		yield return new WaitForSeconds(0.5f);
-
-		triggerCollider.isTrigger = true;
-		yield return null;
 	}
 }
