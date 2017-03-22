@@ -6,7 +6,6 @@ public class SwitchModifier : MonoBehaviour {
 
 	public Transporter[] gates;
 	private Animator anim;
-	private bool isOn = false;
 
 	public void Start()
 	{
@@ -15,7 +14,6 @@ public class SwitchModifier : MonoBehaviour {
 
 	void FlipSwitch()
 	{
-		isOn = !isOn;
 		if (anim.GetBool("switchActive")) {
 			anim.SetBool("switchActive", false);
 			for (int i = 0; i < gates.Length; ++i)
