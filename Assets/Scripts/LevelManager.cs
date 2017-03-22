@@ -19,7 +19,7 @@ public class LevelManager : MonoBehaviour {
 		}
 	}
 
-	void LoadNextLevel()
+	public void LoadNextLevel()
 	{
 		if (nextLevel != null) {
 			nextLevel.SetActive(true);

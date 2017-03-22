@@ -23,10 +23,11 @@ public class Transporter : MonoBehaviour {
 		
 	}
 
-	void Start()
+	//Awake is called when the script instance is being loaded.
+	void Awake()
 	{
 		spawnPoint = this.transform.position;
-		spawnPoint.y -= 0.08f;
+		spawnPoint.y += 0.04f; // Start off player slightly (0.25 unit) behind gate
 		anim = GetComponentInChildren<Animator>();
 		if (triggerCollider == null) {
 			triggerCollider = GetComponent<BoxCollider2D>();
@@ -37,17 +38,19 @@ public class Transporter : MonoBehaviour {
 	{
 		print("Triggered");
 		if (other.tag == "Player" && otherGate != null) {
-			other.SendMessage("Teleport", otherGate.spawnPoint);
-			other.transform.position = otherGate.spawnPoint;
-			StartCoroutine(otherGate.SetToTrigger());
-
 			if (isLevelGate) {
-				//gameManager.LoadLevels();
+				isLevelGate = false; // Don't reuse this gate to load level.
+				GetComponentInParent<LevelManager>().LoadNextLevel();
+				//	otherGate.triggerCollider.isTrigger = false; // ensure the player cant return to previous level
 			}
+			print(otherGate.transform.position.x + " " + otherGate.transform.position.y);
+			//StartCoroutine(other.Teleport(otherGate.spawnPoint));
+			other.SendMessage("Teleport", otherGate.spawnPoint);
+			//StartCoroutine(otherGate.TempDisableTrigger());		
 		}
 	}
 
-	IEnumerator SetToTrigger()
+	IEnumerator TempDisableTrigger()
 	{
 		// change trigger to collider so can't immediately return
 		triggerCollider.isTrigger = false;

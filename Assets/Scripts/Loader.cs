@@ -5,13 +5,8 @@ using UnityEngine;
 public class Loader : MonoBehaviour {
 
 	[SerializeField] private bool fadedIn = false;
-	private SpriteRenderer overlay;
+	[SerializeField] private SpriteRenderer overlay;
 	public GameObject nextLevel;
-
-	void Start () 
-	{
-		overlay = GetComponent<SpriteRenderer>();
-	}
 
 	void Update()
 	{
