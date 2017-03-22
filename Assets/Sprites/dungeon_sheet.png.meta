@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d12ea110396c849d7bd22dec859c5f26
-timeCreated: 1490210282
+timeCreated: 1490213684
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -61,10 +61,12 @@ TextureImporter:
     21300108: FloorTile
     21300110: RightBackPillar
     21300112: LeftBackWallPiece
-    21300114: dungeon_sheet_0
+    21300114: LeftBottomCorner
     21300116: RightBackWallPiece
     21300118: LeftWall
     21300120: RightWall
+    21300122: RightBottomCorner
+    21300124: Bottom
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -774,7 +776,7 @@ TextureImporter:
         x: 0
         y: 1
         width: 48
-        height: 22
+        height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -787,7 +789,7 @@ TextureImporter:
         x: 48
         y: 1
         width: 48
-        height: 22
+        height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -800,7 +802,7 @@ TextureImporter:
         x: 96
         y: 1
         width: 48
-        height: 22
+        height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -813,7 +815,7 @@ TextureImporter:
         x: 144
         y: 1
         width: 48
-        height: 22
+        height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -826,7 +828,7 @@ TextureImporter:
         x: 192
         y: 1
         width: 48
-        height: 22
+        height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -859,7 +861,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet_0
+      name: LeftBottomCorner
       rect:
         serializedVersion: 2
         x: 84
@@ -892,6 +894,32 @@ TextureImporter:
         y: 112
         width: 5
         height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RightBottomCorner
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 101
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bottom
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 101
+        width: 16
+        height: 5
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
