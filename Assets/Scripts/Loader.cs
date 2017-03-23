@@ -5,7 +5,7 @@ using UnityEngine;
 public class Loader : MonoBehaviour {
 
 	[SerializeField] private bool fadedIn = false;
-	[SerializeField] private SpriteRenderer overlay;
+	private SpriteRenderer[] renderers;
 	public GameObject nextLevel;
 
 
@@ -15,28 +15,27 @@ public class Loader : MonoBehaviour {
 			StartCoroutine(FadeIn());
 	}
 
-	void Update()
-	{
-		//if (!fadedIn)
-		//	FadeIn();
-	}
-
 	IEnumerator FadeIn()
 	{
-		Color target = overlay.color;
-		target.a = 0f;
-		while (overlay.color.a > target.a) {
-			overlay.color = Color.Lerp(overlay.color, target, 0.05f);
+		renderers = GetComponentsInChildren<SpriteRenderer>();
+		if (renderers.Length < 1) yield break;
+
+		Color fadein = new Color(1, 1, 1, 1);
+
+		// Set every sprite to invisible
+		for (int i = 0; i < renderers.Length; ++i) {
+			renderers[i].color -= fadein;
+		}
+		yield return null;
+
+		// Slowly fade in
+		while (renderers[0].color != fadein) {
+			Color next = Color.Lerp(renderers[0].color, fadein, 0.05f);
+			for (int i = 0; i < renderers.Length; ++i) {
+				renderers[i].color = next;
+			}
 			yield return null;
 		}
-		fadedIn = true;
 		yield return null;
-	}
-
-	void FadeInn()
-	{
-		overlay.color = Color.Lerp(overlay.color, new Color(0, 0, 0, 0), 0.05f);
-		if (overlay.color.a == 0f)
-			fadedIn = true;
 	}
 }
