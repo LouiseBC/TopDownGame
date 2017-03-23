@@ -5,12 +5,23 @@ using UnityEngine;
 public class Transporter : MonoBehaviour {
 
 	public Transporter otherGate;
+	public Transporter alternateGate;
 	private Animator anim;
-	[SerializeField] private BoxCollider2D triggerCollider; // the collider that is a trigger, may be set to null
+	[SerializeField] private BoxCollider2D triggerCollider; // Used when mutliple colliders on object
+
 	private bool isOpen;
-	
-	private Vector2 spawnPoint;
-	[SerializeField] private bool isLevelGate;
+	public bool isLevelGate;
+	public bool isBipolarLevelGate;
+
+	//Awake is called when the script instance is being loaded.
+	void Awake()
+	{
+		isOpen = false;
+		anim = GetComponentInChildren<Animator>();
+		if (triggerCollider == null) {
+			triggerCollider = GetComponent<BoxCollider2D>();
+		}
+	}
 
 	public void Open()
 	{
@@ -24,25 +35,15 @@ public class Transporter : MonoBehaviour {
 		anim.SetBool("switchActive", false);
 	}
 
-	//Awake is called when the script instance is being loaded.
-	void Awake()
-	{
-		isOpen = false;
-		spawnPoint = this.transform.position;
-		anim = GetComponentInChildren<Animator>();
-		if (triggerCollider == null) {
-			triggerCollider = GetComponent<BoxCollider2D>();
-		}
-	}
-
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if (/*isOpen &&*/ other.tag == "Player" && otherGate != null) {
 			if (isLevelGate) {
 				isLevelGate = false; // Don't reuse this gate to load level.
+				isBipolarLevelGate = false;
 				GetComponentInParent<LevelManager>().LoadNextLevel();
 			}
-			other.SendMessage("Teleport", otherGate.spawnPoint);	
+			other.SendMessage("Teleport", (Vector2)otherGate.transform.position);	
 		}
 	}
 }

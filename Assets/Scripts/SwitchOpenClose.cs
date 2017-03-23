@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwitchModifier : MonoBehaviour {
+public class SwitchOpenClose : MonoBehaviour {
 
-	public Transporter[] gates;
+	[SerializeField] private Transporter[] gates;
 	private Animator anim;
 
 	public void Start()
@@ -28,8 +28,7 @@ public class SwitchModifier : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D other) {
 		if (other.tag == "Player" && Input.GetKeyDown("space")) {
-				FlipSwitch();
+			FlipSwitch();
 		}
 	}
-
 }
