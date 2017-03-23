@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Loader : MonoBehaviour {
 
+	public Vector2 cameraOffset;
 	[SerializeField] private bool fadedIn = false;
 	private SpriteRenderer[] renderers;
 	public GameObject nextLevel;

@@ -47,6 +47,15 @@ TagManager:
   - name: Entities
     uniqueID: 2440251873
     locked: 0
+  - name: SceneAboveEntity
+    uniqueID: 706842885
+    locked: 0
+  - name: SceneAboveAll
+    uniqueID: 3770274563
+    locked: 0
+  - name: EntityAboveAll
+    uniqueID: 2744232043
+    locked: 0
   - name: Overlay
     uniqueID: 122575529
     locked: 0

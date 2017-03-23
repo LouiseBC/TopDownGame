@@ -5,8 +5,8 @@ using UnityEngine;
 public class Transporter : MonoBehaviour {
 
 	public Transporter otherGate;
-	[SerializeField] private BoxCollider2D triggerCollider; // the collider that is a trigger, may be set to null
 	private Animator anim;
+	[SerializeField] private BoxCollider2D triggerCollider; // the collider that is a trigger, may be set to null
 	private bool isOpen;
 	
 	private Vector2 spawnPoint;
@@ -37,7 +37,7 @@ public class Transporter : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (isOpen && other.tag == "Player" && otherGate != null) {
+		if (/*isOpen &&*/ other.tag == "Player" && otherGate != null) {
 			if (isLevelGate) {
 				isLevelGate = false; // Don't reuse this gate to load level.
 				GetComponentInParent<LevelManager>().LoadNextLevel();
