@@ -27,7 +27,6 @@ public class SwitchModifier : MonoBehaviour {
 	}
 
 	void OnTriggerStay2D(Collider2D other) {
-		print("triggered");
 		if (other.tag == "Player" && Input.GetKeyDown("space")) {
 				FlipSwitch();
 		}

@@ -8,13 +8,35 @@ public class Loader : MonoBehaviour {
 	[SerializeField] private SpriteRenderer overlay;
 	public GameObject nextLevel;
 
-	void Update()
+
+	void OnEnable()
 	{
 		if (!fadedIn)
-			FadeIn();
+			StartCoroutine(FadeIn());
+		print("heythere " + fadedIn);
 	}
 
-	void FadeIn()
+	void Update()
+	{
+		//if (!fadedIn)
+		//	FadeIn();
+	}
+
+	IEnumerator FadeIn()
+	{
+		print("fading " + Time.deltaTime);
+		Color target = overlay.color;
+		target.a = 0f;
+		while (overlay.color.a > target.a) {
+			overlay.color = Color.Lerp(overlay.color, target, 0.05f);
+			yield return null;
+		}
+		fadedIn = true;
+		print("done");
+		yield return null;
+	}
+
+	void FadeInn()
 	{
 		overlay.color = Color.Lerp(overlay.color, new Color(0, 0, 0, 0), 0.05f);
 		if (overlay.color.a == 0f)

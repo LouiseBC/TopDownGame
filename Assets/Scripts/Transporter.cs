@@ -29,7 +29,6 @@ public class Transporter : MonoBehaviour {
 	{
 		isOpen = false;
 		spawnPoint = this.transform.position;
-		//spawnPoint.y += 0.04f; // Start off player slightly (0.25 unit) behind gate
 		anim = GetComponentInChildren<Animator>();
 		if (triggerCollider == null) {
 			triggerCollider = GetComponent<BoxCollider2D>();
@@ -38,8 +37,8 @@ public class Transporter : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		print("Triggered");
-		if (isOpen && other.tag == "Player" && otherGate != null) {
+		print("Triggered Transporter");
+		if (/*isOpen &&*/ other.tag == "Player" && otherGate != null) {
 			if (isLevelGate) {
 				isLevelGate = false; // Don't reuse this gate to load level.
 				GetComponentInParent<LevelManager>().LoadNextLevel();

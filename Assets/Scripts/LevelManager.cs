@@ -12,15 +12,9 @@ public class LevelManager : MonoBehaviour {
 		nextLevel = currentLevel.GetComponent<Loader>().nextLevel;
 	}
 
-	void Update()
-	{
-		if (Input.GetKeyDown("space")){
-			LoadNextLevel();
-		}
-	}
-
 	public void LoadNextLevel()
 	{
+		print("Loadlevel");
 		if (nextLevel != null) {
 			nextLevel.SetActive(true);
 			currentLevel = nextLevel;
