@@ -16,12 +16,6 @@ public class Loader : MonoBehaviour {
 		print("heythere " + fadedIn);
 	}
 
-	void Update()
-	{
-		//if (!fadedIn)
-		//	FadeIn();
-	}
-
 	IEnumerator FadeIn()
 	{
 		print("fading " + Time.deltaTime);
@@ -34,12 +28,5 @@ public class Loader : MonoBehaviour {
 		fadedIn = true;
 		print("done");
 		yield return null;
-	}
-
-	void FadeInn()
-	{
-		overlay.color = Color.Lerp(overlay.color, new Color(0, 0, 0, 0), 0.05f);
-		if (overlay.color.a == 0f)
-			fadedIn = true;
 	}
 }
