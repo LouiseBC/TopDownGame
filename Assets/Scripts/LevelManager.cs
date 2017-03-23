@@ -14,7 +14,6 @@ public class LevelManager : MonoBehaviour {
 
 	public void LoadNextLevel()
 	{
-		print("Loadlevel");
 		if (nextLevel != null) {
 			nextLevel.SetActive(true);
 			currentLevel = nextLevel;
