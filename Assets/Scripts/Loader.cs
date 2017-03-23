@@ -13,7 +13,6 @@ public class Loader : MonoBehaviour {
 	{
 		if (!fadedIn)
 			StartCoroutine(FadeIn());
-		print("heythere " + fadedIn);
 	}
 
 	void Update()
@@ -24,7 +23,6 @@ public class Loader : MonoBehaviour {
 
 	IEnumerator FadeIn()
 	{
-		print("fading " + Time.deltaTime);
 		Color target = overlay.color;
 		target.a = 0f;
 		while (overlay.color.a > target.a) {
@@ -32,7 +30,6 @@ public class Loader : MonoBehaviour {
 			yield return null;
 		}
 		fadedIn = true;
-		print("done");
 		yield return null;
 	}
 

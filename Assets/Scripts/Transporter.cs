@@ -37,8 +37,7 @@ public class Transporter : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		print("Triggered Transporter");
-		if (/*isOpen &&*/ other.tag == "Player" && otherGate != null) {
+		if (isOpen && other.tag == "Player" && otherGate != null) {
 			if (isLevelGate) {
 				isLevelGate = false; // Don't reuse this gate to load level.
 				GetComponentInParent<LevelManager>().LoadNextLevel();
