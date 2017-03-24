@@ -7,19 +7,22 @@ public class Transporter : MonoBehaviour {
 	public Transporter otherGate;
 	public Transporter alternateGate;
 	private Animator anim;
-	[SerializeField] private BoxCollider2D triggerCollider; // Used when mutliple colliders on object
 
+	[SerializeField] private BoxCollider2D triggerCollider; 
 	[SerializeField] private bool isOpen = false;
-	public bool isLevelGate;
+	[SerializeField] private bool isLadder = false;
+
 	public bool isBipolarLevelGate;
+	public bool isLevelGate;
 
 	//Awake is called when the script instance is being loaded.
 	void Awake()
 	{
-		if (triggerCollider == null) {
+		if (triggerCollider == null)
 			triggerCollider = GetComponent<BoxCollider2D>();
-		}
-		triggerCollider.isTrigger = false;
+		
+		if (!isOpen)
+			triggerCollider.isTrigger = false;
 		anim = GetComponentInChildren<Animator>();
 	}
 
@@ -40,6 +43,10 @@ public class Transporter : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if (isOpen && other.tag == "Player" && otherGate != null) {
+			if (isLadder) {
+				other.gameObject.layer -= 1;
+				GetComponentInParent<Loader>().SetFade();
+			}
 			if (isLevelGate) {
 				isLevelGate = false; // Don't reuse this gate to load level.
 				isBipolarLevelGate = false;

@@ -39,4 +39,16 @@ public class Loader : MonoBehaviour {
 		}
 		yield return null;
 	}
+
+	public void SetFade()
+	// Assumes renderers have already been loaded successfully
+	// If objects are added during gameplay we will have to reload
+	{
+		Color faded = new Color(0, 0, 0, 0.5f);
+		int inOrOut = (renderers[0].color.a < 1) ? 1 : -1;
+
+		for (int i = 0; i < renderers.Length; ++i) {
+				renderers[i].color -= faded * inOrOut;
+		}
+	}
 }

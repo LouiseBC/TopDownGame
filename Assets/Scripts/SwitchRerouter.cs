@@ -15,10 +15,10 @@ public class SwitchRerouter : Switch {
 	{
 		for (int i = 0; i < gates.Length; ++i) {
 
+			if (gates[i].alternateGate == null) continue;
+
 			if (gates[i].isBipolarLevelGate)
 				gates[i].isLevelGate = !gates[i].isLevelGate;
-
-			if (gates[i].alternateGate == null) continue;
 
 			Transporter temp = gates[i].otherGate;
 			gates[i].otherGate = gates[i].alternateGate;
