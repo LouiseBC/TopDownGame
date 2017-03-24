@@ -2,30 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwitchRerouter : MonoBehaviour {
+public class SwitchRerouter : Switch {
 
-	[SerializeField] private Transporter[] gates;
-	private Animator anim;
-
-	public void Start()
-	{
-		anim = GetComponent<Animator>();
-	}
-
-	void OnTriggerStay2D(Collider2D other) {
+	protected override void OnTriggerStay2D(Collider2D other) {
 		if (other.tag == "Player" && Input.GetKeyDown("space")) {
 			FlipSwitch();
 			RerouteGates();
-		}
-	}
-
-	void FlipSwitch()
-	{
-		if (anim.GetBool("switchActive")) {
-			anim.SetBool("switchActive", false);
-		}
-		else {
-			anim.SetBool("switchActive", true);
 		}
 	}
 
