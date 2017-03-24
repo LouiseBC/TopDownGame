@@ -18,11 +18,13 @@ public class SwitchOpenClose : MonoBehaviour {
 			anim.SetBool("switchActive", false);
 			for (int i = 0; i < gates.Length; ++i)
 				gates[i].Close();
+			StartCoroutine(GetComponentInParent<CameraManager>().CameraShake());
 		}
 		else {
 			anim.SetBool("switchActive", true);
 			for (int i = 0; i < gates.Length; ++i)
 				gates[i].Open();
+			StartCoroutine(GetComponentInParent<CameraManager>().CameraShake());
 		}
 	}
 

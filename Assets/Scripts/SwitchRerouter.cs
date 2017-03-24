@@ -41,8 +41,6 @@ public class SwitchRerouter : MonoBehaviour {
 			Transporter temp = gates[i].otherGate;
 			gates[i].otherGate = gates[i].alternateGate;
 			gates[i].alternateGate = temp;
-			print(temp == gates[i].otherGate);
-			
 		}
 	}
 

@@ -21,11 +21,11 @@ GameObject:
   - component: {fileID: 4061313985615726}
   - component: {fileID: 212768700968032590}
   - component: {fileID: 95969387458064094}
+  - component: {fileID: 114404000906080624}
+  - component: {fileID: 61001082126695976}
   - component: {fileID: 61784481516167724}
   - component: {fileID: 61329227913776718}
-  - component: {fileID: 61001082126695976}
-  - component: {fileID: 114404000906080624}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SlidingWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4722540687302574}
   - component: {fileID: 212724553915354998}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1582946177097042}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.028916553}
+  m_LocalPosition: {x: 0, y: 707, z: 0.028916553}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4722540687302574}
@@ -86,9 +86,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0.004945755, y: 0.02509427}
+  m_Offset: {x: 0.004945755, y: 0.03252697}
   serializedVersion: 2
-  m_Size: {x: 0.2500229, y: 0.17981145}
+  m_Size: {x: 0.2500229, y: 0.16494606}
 --- !u!61 &61329227913776718
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -113,7 +113,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_Offset: {x: -0.17990172, y: 0.005}
   serializedVersion: 2
   m_Size: {x: 0.1201967, y: 0.22}
@@ -146,8 +146,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   otherGate: {fileID: 0}
+  alternateGate: {fileID: 0}
   triggerCollider: {fileID: 61001082126695976}
+  isOpen: 0
   isLevelGate: 1
+  isBipolarLevelGate: 0
 --- !u!212 &212724553915354998
 SpriteRenderer:
   m_ObjectHideFlags: 1
