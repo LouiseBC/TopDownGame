@@ -46,6 +46,7 @@ public class Transporter : MonoBehaviour {
 			if (isLadder) {
 				other.gameObject.layer -= 1;
 				GetComponentInParent<Loader>().SetFade();
+				other.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Entities-1";
 			}
 			if (isLevelGate) {
 				isLevelGate = false; // Don't reuse this gate to load level.

@@ -12,10 +12,10 @@ public class PlayerMovement : MonoBehaviour {
 	private float x;
 	private float y;
 	private Coroutine currMove;
-	private Vector2 targetPos;
 
 	private Rigidbody2D rb;
 	private SpriteRenderer ren;
+	private BoxCollider2D collider;
 
 	public IEnumerator Teleport(Vector2 newposition)
 	{
@@ -30,12 +30,12 @@ public class PlayerMovement : MonoBehaviour {
 		StartCoroutine(FadeIn());
 		isMoving = true;
 		
-		GetComponent<BoxCollider2D>().enabled = false;
+		collider.enabled = false;
 		while ((Vector2)transform.position != targetpos) {
 			transform.position = Vector2.MoveTowards(transform.position, targetpos, 0.5f*Time.deltaTime);
 			yield return null;
 		}
-		GetComponent<BoxCollider2D>().enabled = true;
+		collider.enabled = true;
 		isMoving = false;
 		yield return null;
 	}
@@ -61,6 +61,7 @@ public class PlayerMovement : MonoBehaviour {
 		moveSpeed = 40f;
 		rb = GetComponent<Rigidbody2D>();
 		ren = GetComponent<SpriteRenderer>();
+		collider = GetComponent<BoxCollider2D>();
 	}
 
 	void Update()
@@ -72,39 +73,49 @@ public class PlayerMovement : MonoBehaviour {
 	void FixedUpdate()
 	{
 		if (!isMoving && (x != 0 || y != 0)) {
-			targetPos = rb.position;
+			Vector2 targetpos = rb.position;
 
 			if (x != 0)
-				targetPos.x += moveStep * x;
+				targetpos.x += moveStep * x;
 			else if (y != 0)
-				targetPos.y += moveStep * y;
+				targetpos.y += moveStep * y;
 
-			if (CanMove(targetPos))
-				currMove = StartCoroutine(Move());
+			if (CanMove(targetpos))
+				currMove = StartCoroutine(Move(targetpos));
+			else print("cantmove");
 		}
 	}
 
 	bool CanMove(Vector2 targetpos)
 	{
-		GetComponent<BoxCollider2D>().enabled = false;
-		RaycastHit2D hit = Physics2D.Linecast(transform.position, targetpos, transform.gameObject.layer);
-		GetComponent<BoxCollider2D>().enabled = true;
+		collider.enabled = false;
 
-		return (hit.transform == null);
+		Vector3 origin = transform.position;
+		origin.y += collider.offset.y;
+
+		float xAdd = (x != 0) ? (collider.size.x * 0.5f * x) : 0f;
+		float yAdd = (y != 0) ? (collider.size.y * 0.5f * y) : 0f;
+		Vector3 target = (Vector3)targetpos + new Vector3(xAdd, collider.offset.y + yAdd, 0);
+
+		RaycastHit2D hit = Physics2D.Linecast(origin, target);
+		Debug.DrawLine(origin, target, Color.white, 3f);
+
+		collider.enabled = true;
+
+		return (hit.transform == null || (hit.collider.isTrigger == true));
 	}
 
-	IEnumerator Move()
+	IEnumerator Move(Vector2 targetpos)
 	{
 		isMoving = true;
-		while ((Vector2)rb.transform.position != targetPos) {
-			Vector2 newpos = Vector2.Lerp(transform.position, targetPos, Time.deltaTime * moveSpeed);
-			transform.position = newpos;
+		while ((Vector2)rb.transform.position != targetpos) {
+			Vector2 newpos = Vector2.Lerp(transform.position, targetpos, Time.deltaTime * moveSpeed);
+			//Vector2 newpos = Vector2.MoveTowards(rb.transform.position, targetpos, Time.deltaTime*moveSpeed);;
+			rb.MovePosition(newpos);
+			//transform.position = Vector2.MoveTowards(rb.transform.position, targetpos, Time.deltaTime*moveSpeed); //newpos;
 			yield return null;
 		}
 		isMoving = false;
 		yield return null;
 	}
-
-
-
 }

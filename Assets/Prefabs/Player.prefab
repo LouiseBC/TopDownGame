@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61732900128501804}
   - component: {fileID: 50203191029205500}
   - component: {fileID: 114133219160777938}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1305381626960638}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.698, y: -0.447, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -74,9 +74,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: -0.054964244}
+  m_Offset: {x: 0, y: -0.037963957}
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.05}
+  m_Size: {x: 0.16, y: 0.08}
 --- !u!114 &114133219160777938
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -88,6 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d527be4ceb1742f5b2ccd241e2ef6e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 30
 --- !u!212 &212176235119578454
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -118,7 +119,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1854715423
-  m_SortingOrder: 500
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300056, guid: d12ea110396c849d7bd22dec859c5f26, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
