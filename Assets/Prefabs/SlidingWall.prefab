@@ -149,8 +149,11 @@ MonoBehaviour:
   alternateGate: {fileID: 0}
   triggerCollider: {fileID: 61001082126695976}
   isOpen: 0
-  isLevelGate: 1
+  isLadder: 0
   isBipolarLevelGate: 0
+  isLevelGate: 1
+  openAudio: {fileID: 0}
+  closeAudio: {fileID: 0}
 --- !u!212 &212724553915354998
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -199,7 +202,7 @@ SpriteRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 54efd365a42cd4323bad2c02a254aaae, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

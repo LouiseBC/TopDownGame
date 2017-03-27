@@ -102,20 +102,26 @@ public class PlayerMovement : MonoBehaviour {
 
 		collider.enabled = true;
 
-		return (hit.transform == null || (hit.collider.isTrigger == true));
+		return (hit.transform == null || hit.collider.isTrigger);
 	}
 
 	IEnumerator Move(Vector2 targetpos)
 	{
 		isMoving = true;
-		while ((Vector2)rb.transform.position != targetpos) {
+		float remainingdistance = Mathf.Abs((targetpos.x - rb.transform.position.x) + (targetpos.y - rb.transform.position.y));
+		while (remainingdistance > 0.001f) {
+			//print(remainingdistance);
 			Vector2 newpos = Vector2.Lerp(transform.position, targetpos, Time.deltaTime * moveSpeed);
 			//Vector2 newpos = Vector2.MoveTowards(rb.transform.position, targetpos, Time.deltaTime*moveSpeed);;
 			rb.MovePosition(newpos);
 			//transform.position = Vector2.MoveTowards(rb.transform.position, targetpos, Time.deltaTime*moveSpeed); //newpos;
+
+			//print("Target: " + targetpos.x + "," + targetpos.y + ", curr: " + rb.position.x + "," + rb.position.y);
+			remainingdistance = Mathf.Abs((targetpos.x - rb.transform.position.x) + (targetpos.y - rb.transform.position.y));
 			yield return null;
 		}
 		isMoving = false;
+		print("done moving");
 		yield return null;
 	}
 }

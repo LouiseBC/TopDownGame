@@ -8,6 +8,7 @@ public class SwitchRerouter : Switch {
 		if (other.tag == "Player" && Input.GetKeyDown("space")) {
 			FlipSwitch();
 			RerouteGates();
+			GetComponent<AudioSource>().Play();
 		}
 	}
 

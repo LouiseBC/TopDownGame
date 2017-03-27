@@ -6,7 +6,6 @@ public class Transporter : MonoBehaviour {
 
 	public Transporter otherGate;
 	public Transporter alternateGate;
-	private Animator anim;
 
 	[SerializeField] private BoxCollider2D triggerCollider; 
 	[SerializeField] private bool isOpen = false;
@@ -14,6 +13,10 @@ public class Transporter : MonoBehaviour {
 
 	public bool isBipolarLevelGate;
 	public bool isLevelGate;
+
+	[SerializeField] AudioSource openAudio;
+	[SerializeField] AudioSource closeAudio;
+	private Animator anim;
 
 	//Awake is called when the script instance is being loaded.
 	void Awake()
@@ -31,6 +34,7 @@ public class Transporter : MonoBehaviour {
 		isOpen = true;
 		anim.SetBool("switchActive", true);
 		triggerCollider.isTrigger = true;
+		openAudio.PlayDelayed(0.1f);
 	}
 
 	public void Close()
@@ -38,6 +42,7 @@ public class Transporter : MonoBehaviour {
 		isOpen = false;
 		anim.SetBool("switchActive", false);
 		triggerCollider.isTrigger = false;
+		closeAudio.PlayDelayed(0.1f);
 	}
 
 	void OnTriggerEnter2D(Collider2D other)

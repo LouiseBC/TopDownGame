@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d12ea110396c849d7bd22dec859c5f26
-timeCreated: 1490387648
+timeCreated: 1490461544
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -70,6 +70,9 @@ TextureImporter:
     21300126: Crate
     21300128: CrateNoShadow
     21300130: FrontLadder
+    21300132: torch3
+    21300134: torch2
+    21300136: torch1
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -962,6 +965,45 @@ TextureImporter:
         y: 6
         width: 20
         height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: torch3
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 49
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: torch2
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 49
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: torch1
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 49
+        width: 10
+        height: 13
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
