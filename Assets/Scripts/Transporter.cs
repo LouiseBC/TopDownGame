@@ -48,11 +48,14 @@ public class Transporter : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if (isOpen && other.tag == "Player" && otherGate != null) {
+<<<<<<< HEAD
 			if (isLadder) {
 				other.gameObject.layer -= 1;
 				GetComponentInParent<Loader>().SetFade();
 				other.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Entities-1";
 			}
+=======
+>>>>>>> a47a30e66b8dbc093e5352f31ea76e8989c0139d
 			if (isLevelGate) {
 				isLevelGate = false; // Don't reuse this gate to load level.
 				isBipolarLevelGate = false;

@@ -51,4 +51,14 @@ public class Loader : MonoBehaviour {
 				renderers[i].color -= faded * inOrOut;
 		}
 	}
+
+		Color target = overlay.color;
+		target.a = 0f;
+		while (overlay.color.a > target.a) {
+			overlay.color = Color.Lerp(overlay.color, target, 0.05f);
+			yield return null;
+		}
+		fadedIn = true;
+		yield return null;
+	}
 }
