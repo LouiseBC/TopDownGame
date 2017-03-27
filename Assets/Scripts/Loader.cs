@@ -9,7 +9,6 @@ public class Loader : MonoBehaviour {
 	private SpriteRenderer[] renderers;
 	public GameObject nextLevel;
 
-
 	void OnEnable()
 	{
 		if (!fadedIn)
@@ -43,22 +42,12 @@ public class Loader : MonoBehaviour {
 	public void SetFade()
 	// Assumes renderers have already been loaded successfully
 	// If objects are added during gameplay we will have to reload
-	{
+	{	
 		Color faded = new Color(0, 0, 0, 0.5f);
 		int inOrOut = (renderers[0].color.a < 1) ? 1 : -1;
 
 		for (int i = 0; i < renderers.Length; ++i) {
 				renderers[i].color -= faded * inOrOut;
 		}
-	}
-
-		Color target = overlay.color;
-		target.a = 0f;
-		while (overlay.color.a > target.a) {
-			overlay.color = Color.Lerp(overlay.color, target, 0.05f);
-			yield return null;
-		}
-		fadedIn = true;
-		yield return null;
 	}
 }
